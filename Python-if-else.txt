@@ -1,0 +1,36 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Problem:
+# Given an integer n, perform the following conditional actions:
+# - If n is odd, print "Weird"
+# - If n is even and in the inclusive range of 2 to 5, print "Not Weird"
+# - If n is even and in the inclusive range of 6 to 20, print "Weird"
+# - If n is even and greater than 20, print "Not Weird"
+
+# Approach:
+# 1. Take input integer n.
+# 2. Check if n is odd → print "Weird".
+# 3. If n is even:
+#    - Check range conditions using if-elif ladder.
+#    - Print output based on the condition satisfied.
+
+# Time Complexity:
+# O(1) → Constant time, since only a fixed number of conditions are checked.
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    if n % 2 != 0:
+        print("Weird")
+    elif n % 2 == 0 and 2 <= n <= 5:
+        print("Not Weird")
+    elif n % 2 == 0 and 6 <= n <= 20:
+        print("Weird")
+    elif n % 2 == 0 and n > 20:
+        print("Not Weird")

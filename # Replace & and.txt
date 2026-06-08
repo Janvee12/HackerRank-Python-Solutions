@@ -1,0 +1,57 @@
+# ============================
+# PLATFORM:
+# HackerRank
+# (Regex - Replace && and ||)
+# ============================
+
+# ============================
+# PROBLEM:
+# ============================
+#
+# You are given multiple lines of text.
+#
+# Replace:
+#   " && "  → " and "
+#   " || "  → " or "
+#
+# IMPORTANT:
+# Do NOT replace inside already replaced text.
+# Keep repeating until string stabilizes.
+#
+# ============================
+# APPROACH:
+# ============================
+#
+# We repeatedly apply regex replacements
+# until no more changes occur.
+#
+# This ensures nested patterns are fully replaced.
+#
+# ============================
+
+import re
+
+t = int(input())
+
+for _ in range(t):
+
+    S = input()
+
+    # ============================
+    # LOOP UNTIL NO CHANGE
+    # ============================
+    while True:
+
+        old = S
+
+        # replace logical AND
+        S = re.sub(r" && ", " and ", S)
+
+        # replace logical OR
+        S = re.sub(r" \|\| ", " or ", S)
+
+        # stop when no change happens
+        if S == old:
+            break
+
+    print(S)
